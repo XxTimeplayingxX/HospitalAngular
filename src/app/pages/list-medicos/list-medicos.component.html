@@ -60,7 +60,7 @@
         <div class="row">
 
             @for (Medicos of listMedico; track $index) {
-                <div class="card col-md-5 col-sm-6 m-1" >
+                <div class="card col-md-5 col-sm-6 col-lg-4" >
                     <img [src]="Medicos.imagen" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{Medicos.name +' '+ Medicos.apellido}}</h5>
