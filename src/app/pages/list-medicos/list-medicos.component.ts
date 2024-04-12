@@ -43,15 +43,8 @@ export class ListMedicosComponent {
   
   agregarMedico(){
     console.log(this.forms);
-    const medico: any={
-      imagen: this.forms.get('imagen')?.value,
-      name: this.forms.get('name')?.value,
-      apellido: this.forms.get('apellido')?.value,
-      cedula: this.forms.get('cedula')?.value,
-      telefono: this.forms.get('telefono')?.value,
-      especialidad: this.forms.get('especialidad')?.value,
-      cargo: this.forms.get('cargo')?.value
-    }
+
+    const medico: any= this.forms.value;
     this.listMedico.push(medico);
   }
 }
