@@ -22,6 +22,11 @@
             <form [formGroup]="forms" (ngSubmit)="agregarMedico()">
                 <div class="input-group input-group-lg mb-3">
                     <!-- Imagen -->
+                    <div class="mb-3">
+                      <label for="formFile" class="form-label">Default file input example</label>
+                      <input class="form-control" type="file" id="formFile">
+                    </div>
+
                   <div class="input-group input-group-lg mb-3">
                     <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link"></i></span>
                     <input formControlName="imagen" type="text" class="form-control" placeholder="Ingrese Url" aria-label="Username" aria-describedby="basic-addon1">
