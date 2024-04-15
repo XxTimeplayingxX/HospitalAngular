@@ -17,7 +17,6 @@ import {MedicosService } from './../../services/medicos.service'
     forms: FormGroup;
     constructor(private fb: FormBuilder, private medicoService: MedicosService){
       this.forms = this.fb.group({
-        imagen: (''),
         name: (''),
         apellido: (''),
         cedula: (''),
@@ -35,8 +34,16 @@ import {MedicosService } from './../../services/medicos.service'
     }
     ngOnInit(): void {
       this.medicoService.getData().subscribe(data=>{
-        this.medico = data;
-        console.log(this.medico);
+        this.medico = data.map(medicoData=>{
+          return{
+            name: medicoData.nameProperty,
+            apellido: medicoData.nameProperty,
+            cedula: medicoData.nameProperty,
+            telefono: medicoData.nameProperty,
+            especialidad: medicoData.nameProperty,
+            cargo: medicoData.nameProperty
+          };
+        })
       })
     }
   }
