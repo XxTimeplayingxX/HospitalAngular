@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ListMedicosComponent } from './pages/list-medicos/list-medicos.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { provideHttpClient,HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,9 +19,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
