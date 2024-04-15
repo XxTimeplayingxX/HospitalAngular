@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { listMedicos } from './../../models/models.listMedicos';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MedicosService } from '../../services/medicos.service';
 
 @Component({
   selector: 'app-list-medicos',
@@ -29,7 +30,9 @@ export class ListMedicosComponent {
     }
   ]
   forms: FormGroup;
-  constructor(private fb: FormBuilder){
+  constructor(private fb: FormBuilder,
+    private _medicoService: MedicosService
+  ){
     this.forms = this.fb.group({
       imagen: (''),
       name: (''),
@@ -40,7 +43,16 @@ export class ListMedicosComponent {
       cargo: ('')
     })
   }
+  ngOninit():void{
+    this.obtenerTarjetasService();
+  }
   
+  obtenerTarjetasService(){
+    this._medicoService.getListMedicos().subscribe(data=>{
+      console.log(data)
+    })
+  }
+
   agregarMedico(){
     console.log(this.forms);
 
