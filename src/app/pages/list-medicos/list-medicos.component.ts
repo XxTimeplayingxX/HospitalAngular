@@ -32,17 +32,17 @@ import {MedicosService } from './../../services/medicos.service'
       const medico: any= this.forms.value;
       this.listMedico.push(medico);
     }
-    ngOnInit(): void {
-      this.medicoService.getData().subscribe(data=>{
-        this.medico = data.map(medicoData=>{
-          return{
-            name: medicoData.nameProperty,
-            apellido: medicoData.nameProperty,
-            cedula: medicoData.nameProperty,
-            telefono: medicoData.nameProperty,
-            especialidad: medicoData.nameProperty,
-            cargo: medicoData.nameProperty
-          };
+    // ngOnInit(): void {
+    //   this.medicoService.getData().subscribe(data=>{
+    //     this.medico = data.map(medicoData=>{
+    //       return{
+    //         name: medicoData.nameProperty,
+    //         apellido: medicoData.nameProperty,
+    //         cedula: medicoData.nameProperty,
+    //         telefono: medicoData.nameProperty,
+    //         especialidad: medicoData.nameProperty,
+    //         cargo: medicoData.nameProperty
+    //       };
         })
       })
     }
