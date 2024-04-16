@@ -1,8 +1,8 @@
 import { Component,OnInit } from '@angular/core';
-import { listMedicos } from '../../response/models.listMedicos';
+import { ListMedicos } from '../../response/models.listMedicos';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
-import { Observable } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import {MedicosService } from './../../services/medicos.service'
 
 @Component({
@@ -11,13 +11,14 @@ import {MedicosService } from './../../services/medicos.service'
   styleUrl: './list-medicos.component.css'
 })
   export class ListMedicosComponent implements OnInit{
-    medico: listMedicos[] = [];
-    listMedico = <listMedicos[]>[
-    ]
+    
+    medico: ListMedicos[] = [];
     forms: FormGroup;
+    labelButton : string = 'Aceptar';
+
     constructor(private fb: FormBuilder, private medicoService: MedicosService){
       this.forms = this.fb.group({
-        name: (''),
+        nombre: (''),
         apellido: (''),
         cedula: (''),
         telefono: (''),
@@ -26,24 +27,24 @@ import {MedicosService } from './../../services/medicos.service'
       })
     }
     
-    agregarMedico(){
-      console.log(this.forms);
-
-      const medico: any= this.forms.value;
-      this.listMedico.push(medico);
+    actualizarMedico(index:number){
+      //los datos de un objeto lo colo
+      this.forms.patchValue(this.medico[index]);
+      this.labelButton = 'Actualizar';
     }
-    // ngOnInit(): void {
-    //   this.medicoService.getData().subscribe(data=>{
-    //     this.medico = data.map(medicoData=>{
-    //       return{
-    //         name: medicoData.nameProperty,
-    //         apellido: medicoData.nameProperty,
-    //         cedula: medicoData.nameProperty,
-    //         telefono: medicoData.nameProperty,
-    //         especialidad: medicoData.nameProperty,
-    //         cargo: medicoData.nameProperty
-    //       };
-        })
-      })
+    safeData(){
+      if(this.labelButton == 'Actualizar'){
+        this.medicoService.putData(this.forms.value).pipe(finalize(()=>this.getData())).subscribe();
+      }
     }
-  }
+    getData(){
+      this.medicoService.getData().subscribe(data=>{
+        this.medico = data.data;
+        console.log(this.medico);
+       });
+    }
+     ngOnInit(): void {
+       this.getData();
+      }
+    }
+  
