@@ -37,9 +37,6 @@ export class MedicosService {
   }
 }
 
-//https://localhost:7107/api/Medico?cedula=0999994444&nombre=Pedro&apellido=Perez&telefono=0989786756&correo=juan%2540gmail.com&especialidad=cirujano&cargo=general
-
-//https://localhost:7107/api/Medico?cedula=0999994444&nombre=Juan&apellido=Perez&telefono=0989786756&correo=juan%40gmail.com&espcialidad=cirujano&cargo=general
 
 
 
