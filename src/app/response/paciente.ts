@@ -4,4 +4,5 @@ export interface PacienteInterface{
     apellido: string,
     cedula: string,
     telefono: string
+    correo: string
 }
