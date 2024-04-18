@@ -9,6 +9,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient,HttpClientModule } from '@angular/common/http';
 import { LabsComponent } from './pages/labs/labs.component';
 import { PacientesComponent } from './pages/pacientes/pacientes.component';
+import { SideBarComponent } from './pages/side-bar/side-bar.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatSlideToggle } from '@angular/material/slide-toggle'
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list'
 
 
 @NgModule({
@@ -17,17 +26,26 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
     LoginComponent,
     ListMedicosComponent,
     LabsComponent,
-    PacientesComponent
+    PacientesComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSlideToggle,
+    MatButtonModule,
+    MatIconModule, 
+    MatSidenavModule,
+    MatToolbarModule,
+    BrowserAnimationsModule,
+    MatListModule
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

@@ -13,7 +13,7 @@ import { finalize } from 'rxjs';
 export class PacientesComponent implements OnInit{
   paciente: PacienteInterface[] = [];
   forms: FormGroup;
-  labelBuuton: string = 'Aceptar'
+  labelBuuton: string = 'Actualizar Usuario'
 
   constructor( private fb: FormBuilder, private pacienteServie: PacienteService){
     //Inicializamos los valores en el constructor

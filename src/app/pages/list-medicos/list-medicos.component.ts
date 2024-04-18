@@ -15,6 +15,7 @@ import {MedicosService } from './../../services/medicos.service'
     medico: ListMedicos[] = [];
     forms: FormGroup;
     labelButton : string = 'Aceptar';
+    labelAnadirMedico : string = 'Agregar';
 
     constructor(private fb: FormBuilder, private medicoService: MedicosService){
       this.forms = this.fb.group({
@@ -34,7 +35,8 @@ import {MedicosService } from './../../services/medicos.service'
     }
     safeData(){
       if(this.labelButton == 'Actualizar'){
-        this.medicoService.putData(this.forms.value).pipe(finalize(()=>this.getData())).subscribe();
+        this.medicoService.putData(this.forms.value).pipe(
+          finalize(()=>this.getData())).subscribe();
       }
     }
     getData(){
@@ -42,6 +44,9 @@ import {MedicosService } from './../../services/medicos.service'
         this.medico = data.data;
         console.log(this.medico);
        });
+    }
+    postData(){
+      this.medicoService.postData(this.forms.value).pipe(finalize(()=>this.getData())).subscribe();
     }
      ngOnInit(): void {
        this.getData();

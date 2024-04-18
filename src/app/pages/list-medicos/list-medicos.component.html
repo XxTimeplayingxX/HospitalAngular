@@ -44,25 +44,31 @@
                 <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-briefcase"></i></span>
                 <input formControlName="cargo" type="text" class="form-control" placeholder="Cargo" aria-label="Username" aria-describedby="basic-addon1">
               </div>
-              <div class="d-grid gap-2">
-                <button type="button" (click)="safeData()" class="btn btn-success btn-lg">
+              <div class="d-grid gap-2 buttons">
+                <div class="row justify-content-around">
+                  <button type="button" (click)="safeData()" class="btn  btn-lg col-lg-5 col-md-5 col-sm-12 m-1">
                     <i class="fa-solid fa-database"></i>
                     &nbsp;{{labelButton}}
                   </button>
+                  <button type="button" (click)="postData()" class="btn  btn-lg col-lg-5 col-md-5 col-sm-12 post m-1">
+                    <i class="fa-solid fa-database"></i>
+                    &nbsp;{{labelAnadirMedico}}
+                  </button>
+                </div>
               </div>
             </form>
         </div>
-        <div class="row">
+        <div class="row justify-content-around">
 
             @for (Medicos of medico; track Medicos;let  i = $index) {
-                <div class="card col-md-5 col-sm-6 col-lg-4" >
+                <div class="card col-md-5 col-sm-6 col-lg-4 mb-3" >
                     <div class="card-body">
                         <h5 class="card-title">{{Medicos.nombre +' '+ Medicos.apellido}}</h5>
                         <ul>
-                            <li>Cedula: {{Medicos.cedula}}</li>
-                            <li>Telefono: {{Medicos.telefono}}</li>
-                            <li>Especialidad: {{Medicos.especialidad}}</li>
-                            <li>Cargo: {{Medicos.cargo}}</li>
+                            <li><b>Cedula:</b> {{Medicos.cedula}}</li>
+                            <li><b>Telefono:</b> {{Medicos.telefono}}</li>
+                            <li><b>Especialidad:</b> {{Medicos.especialidad}}</li>
+                            <li><b>Cargo:</b> {{Medicos.cargo}}</li>
                         </ul>
                         <button class="btn btn-primary" (click)="actualizarMedico(i)">Cita</button>
                     </div>

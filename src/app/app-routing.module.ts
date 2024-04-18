@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { ListMedicosComponent } from './pages/list-medicos/list-medicos.component';
 import { LabsComponent } from './pages/labs/labs.component';
 import { PacientesComponent } from './pages/pacientes/pacientes.component';
+import { SideBarComponent } from './pages/side-bar/side-bar.component';
 
 const routes: Routes = [{
   path: '',
@@ -20,6 +21,10 @@ const routes: Routes = [{
 {
   path: 'paciente',
   component: PacientesComponent
+},
+{
+  path: 'sidebar',
+  component: SideBarComponent
 }
 ];
 
