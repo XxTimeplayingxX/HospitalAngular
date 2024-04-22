@@ -17,7 +17,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list'
+import {MatListModule} from '@angular/material/list';
+import { CommonModule } from '@angular/common';
+import { SharedModule } from './shared/shared.module';
+
 
 
 @NgModule({
@@ -27,21 +30,15 @@ import {MatListModule} from '@angular/material/list'
     ListMedicosComponent,
     LabsComponent,
     PacientesComponent,
-    SideBarComponent
+    SideBarComponent,
+    
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule, 
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatSlideToggle,
-    MatButtonModule,
-    MatIconModule, 
-    MatSidenavModule,
-    MatToolbarModule,
+    SharedModule,
     BrowserAnimationsModule,
-    MatListModule
+    BrowserModule,
+    CommonModule,
+    
   ],
   providers: [
     provideHttpClient(),

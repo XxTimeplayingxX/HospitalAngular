@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit, signal } from '@angular/core';
 import { ListMedicos } from '../../response/models.listMedicos';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
@@ -11,6 +11,12 @@ import {MedicosService } from './../../services/medicos.service'
   styleUrl: './list-medicos.component.css'
 })
   export class ListMedicosComponent implements OnInit{
+    hideSideMenu = signal(true);
+  @Input({required: true}) cart: ListMedicos[] = []
+
+  toogleSideMenu(){
+    this.hideSideMenu.update(prevState => !prevState)
+  }
     
     medico: ListMedicos[] = [];
     forms: FormGroup;
