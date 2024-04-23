@@ -10,7 +10,7 @@ import {MedicosService } from './../../services/medicos.service'
   templateUrl: './list-medicos.component.html',
   styleUrl: './list-medicos.component.css'
 })
-  export class ListMedicosComponent implements OnInit{
+  export class ListMedicosComponent /*implements OnInit*/{
     hideSideMenu = signal(true);
   @Input({required: true}) cart: ListMedicos[] = []
 
@@ -34,28 +34,28 @@ import {MedicosService } from './../../services/medicos.service'
       })
     }
     
-    actualizarMedico(index:number){
-      //los datos de un objeto lo colo
-      this.forms.patchValue(this.medico[index]);
-      this.labelButton = 'Actualizar';
-    }
-    safeData(){
-      if(this.labelButton == 'Actualizar'){
-        this.medicoService.putData(this.forms.value).pipe(
-          finalize(()=>this.getData())).subscribe();
-      }
-    }
-    getData(){
-      this.medicoService.getData().subscribe(data=>{
-        this.medico = data.data;
-        console.log(this.medico);
-       });
-    }
-    postData(){
-      this.medicoService.postData(this.forms.value).pipe(finalize(()=>this.getData())).subscribe();
-    }
-     ngOnInit(): void {
-       this.getData();
-      }
+    // actualizarMedico(index:number){
+    //   //los datos de un objeto lo colo
+    //   this.forms.patchValue(this.medico[index]);
+    //   this.labelButton = 'Actualizar';
+    // }
+    // safeData(){
+    //   if(this.labelButton == 'Actualizar'){
+    //     this.medicoService.putData(this.forms.value).pipe(
+    //       finalize(()=>this.getData())).subscribe();
+    //   }
+    // }
+    // getData(){
+    //   this.medicoService.getData().subscribe(data=>{
+    //     this.medico = data.data;
+    //     console.log(this.medico);
+    //    });
+    // }
+    // postData(){
+    //   this.medicoService.postData(this.forms.value).pipe(finalize(()=>this.getData())).subscribe();
+    // }
+    //  ngOnInit(): void {
+    //    this.getData();
+    //   }
     }
   

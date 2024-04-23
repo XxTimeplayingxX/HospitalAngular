@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatListModule} from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -35,10 +36,11 @@ import { SharedModule } from './shared/shared.module';
   ],
   imports: [
     SharedModule,
+    RouterModule,
     BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
-    
+    AppRoutingModule
   ],
   providers: [
     provideHttpClient(),
