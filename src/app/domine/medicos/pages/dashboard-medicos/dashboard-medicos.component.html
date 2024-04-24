@@ -1,8 +1,8 @@
 <app-header/>
 
-<app-form-medico/>
+<app-form-medico [dataMedico]="dataMedico"/>
 
-
+<app-table-medico (medicoIndex)="fromChild($event)"/>
 
 
 

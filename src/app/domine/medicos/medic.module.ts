@@ -7,7 +7,9 @@ import { FormMedicoComponent } from './componente/form-medico/form-medico.compon
 import { MedicoComponent } from './componente/medico/medico.component';
 import { SharedModule } from '../../shared/shared.module';
 import { HeaderComponent } from '../shared/header/header.component';
-import { DashboardMedicosComponent } from './pages/dashboard-medicos/dashboard-medicos.component'; 
+import { DashboardMedicosComponent } from './pages/dashboard-medicos/dashboard-medicos.component';
+import { TableMedicoComponent } from './componente/table-medico/table-medico.component'; 
+
 
 
 
@@ -16,7 +18,8 @@ import { DashboardMedicosComponent } from './pages/dashboard-medicos/dashboard-m
     FormMedicoComponent,
     MedicoComponent,
     HeaderComponent,
-    DashboardMedicosComponent
+    DashboardMedicosComponent,
+    TableMedicoComponent
   ],
   imports: [
     CommonModule,

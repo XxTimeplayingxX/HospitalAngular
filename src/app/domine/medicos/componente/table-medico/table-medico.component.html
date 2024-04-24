@@ -1,0 +1,42 @@
+<div class="flex flex-col overflow-x-auto">
+    <div class="sm:-mx-6 lg:-mx-8">
+      <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div class="overflow-x-auto">
+          <table
+            class="min-w-full text-start text-sm font-light text-surface dark:text-white table-auto">
+            <thead
+              class="border-b border-neutral-200 font-medium dark:border-white/10">
+              <tr>
+                <th scope="col" class="px-6 py-4">#Cedula</th>
+                <th scope="col" class="px-6 py-4">Nombre</th>
+                <th scope="col" class="px-6 py-4">Apellido</th>
+                <th scope="col" class="px-6 py-4">Telefono</th>
+                <th scope="col" class="px-6 py-4">Correo</th>
+                <th scope="col" class="px-6 py-4">Especialidad</th>
+                <th scope="col" class="px-6 py-4">Cargo</th>
+                <th scope="col" class="px-6 py-4">Opciones</th>
+              </tr>
+            </thead>
+            <tbody>
+                @for (medicos of medico; track medicos; let i = $index) {
+                    <tr class="border-b border-neutral-200 dark:border-white/10">
+                        <td class="whitespace-nowrap px-6 py-4 font-medium">{{medicos.cedula}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.nombre}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.apellido}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.telefono}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.correo}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.especialidad}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">{{medicos.cargo}}</td>
+                        <td class="whitespace-nowrap px-6 py-4">
+                          <i class="fa-solid fa-pen mr-5 pencil" (click)="medicoData(i)"></i>
+                          <i class="fa-solid fa-trash trash"></i>
+                        </td>
+                    </tr>
+                }
+              </tbody>
+          </table>
+        </div>
+      </div>
+
+
+     
