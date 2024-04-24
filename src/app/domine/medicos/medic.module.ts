@@ -6,13 +6,17 @@ import { ListMedicosComponent } from './pages/list-medicos/list-medicos.componen
 import { FormMedicoComponent } from './componente/form-medico/form-medico.component';
 import { MedicoComponent } from './componente/medico/medico.component';
 import { SharedModule } from '../../shared/shared.module';
+import { HeaderComponent } from '../shared/header/header.component';
+import { DashboardMedicosComponent } from './pages/dashboard-medicos/dashboard-medicos.component'; 
 
 
 
 @NgModule({
   declarations: [ListMedicosComponent,
     FormMedicoComponent,
-    MedicoComponent
+    MedicoComponent,
+    HeaderComponent,
+    DashboardMedicosComponent
   ],
   imports: [
     CommonModule,
