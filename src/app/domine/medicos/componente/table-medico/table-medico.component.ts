@@ -30,8 +30,10 @@ export class TableMedicoComponent {
   }
 
   medicoData(index: number){
+    var medicoMandado;
     this.medicoIndex.emit(this.medico[index]);
-    console.log('Se manda el siguiente médico: ' + this.medico[index]);
+    medicoMandado = this.medico[index]
+    console.log('Se manda el siguiente médico: ' + medicoMandado.cedula);
   }
 
   //API methods
@@ -41,5 +43,10 @@ export class TableMedicoComponent {
       console.log(this.medico);
      });
   }
-  
+  deleteMedico(index: number){
+    var medicoCedula = this.medico[index].cedula;
+    console.log(medicoCedula);
+   this.medicoService.LogicDelete(this.medico[index])
+   .subscribe()
+  }
 }

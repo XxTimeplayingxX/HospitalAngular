@@ -14,4 +14,5 @@ export interface ListMedicos{
     cedula: string
     telefono: string
     correo: string
+    estado: boolean
 }

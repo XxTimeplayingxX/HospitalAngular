@@ -20,6 +20,8 @@ export class FormMedicoComponent implements  OnChanges{
   @Input() dataMedico: ListMedicos | null = null;
   //Output
   @Output() actualizado = new EventEmitter();
+  @Output() anadido = new EventEmitter();
+  
 
   constructor(private fb: FormBuilder, private medicoService: MedicosService){
     this.forms = this.fb.group({
@@ -61,7 +63,15 @@ export class FormMedicoComponent implements  OnChanges{
     }
   }
   addMedico(){
-    this.medicoService.postData(this.forms.value).subscribe();
+    console.log(this.forms);
+    const datos = JSON.parse(JSON.stringify(this.forms.value));
+
+    this.medicoService.postData(datos)
+    .subscribe(()=>{
+      this.anadido.emit(true)
+      this.forms.reset();
+    });
+    console.log('Enviando datos desde el forms');
   }
   
 }

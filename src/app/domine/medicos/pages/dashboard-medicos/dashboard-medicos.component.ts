@@ -31,6 +31,9 @@ export class DashboardMedicosComponent implements AfterViewInit {
     console.log(event)
   }
   refreshData(){
+    this.tbMedico.resp = true;
+    console.log('Estamos en el Padre, envianod respuesta: ' +this.tbMedico.resp);
+    console.log('Ejecutando método refrescar')
     this.tbMedico.refreshData();
   }
 

@@ -24,12 +24,12 @@ export class MedicosService {
     .set('nombre', medico.nombre)
     .set('apellido', medico.apellido)
     .set('telefono', medico.telefono)
-    .set('correo', medico?.correo??'juan%40gmail.com')
+    .set('correo', medico.correo)
     .set('especialidad', medico.especialidad)
     .set('cargo', medico.cargo)
 
     const url = 'https://localhost:7107/api/';
-    return this.http.put<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=juan%40gmail.com&espcialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
+    return this.http.put<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&espcialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
   }
   postData(medico:ListMedicos): Observable<any>{
     //Crea los parametros del api
@@ -38,11 +38,23 @@ export class MedicosService {
     .set('nombre', medico.nombre)
     .set('apellido', medico.apellido)
     .set('telefono', medico.telefono)
-    .set('correo', medico?.correo??'juan%40gmail.com')
+    .set('correo', medico.correo)
     .set('especialidad', medico.especialidad)
     .set('cargo', medico.cargo)
 
-    return this.http.put<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=juan%40gmail.com&espcialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
+    
+    return this.http.post<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&especialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
+    
+    //http://https//localhost:7107/api/Medico?cedula=0989787719&nombre=Juan&apellido=Piguave&telefono=0978568112&correo=jpiguave%40gmail.com&especialidad=Veterinario&cargo=auxiliar
+
+    //https://localhost:7107/api/Medico?cedula=0989787719&nombre=Juan&apellido=Piguave&telefono=0978568112&correo=jpiguave%40gmail.com&especialidad=Veterinario&cargo=auxiliar
+    
+  }
+  LogicDelete(medico:ListMedicos): Observable<any>{
+    const param = new HttpParams()
+    .set('cedula', medico.cedula)
+
+    return this.http.delete<any>(`https://localhost:7107/api/Medico/${medico.cedula}?cedula=${medico.cedula}`, {});
   }
 }
 
