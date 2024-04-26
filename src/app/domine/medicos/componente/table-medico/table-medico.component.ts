@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { ListMedicos } from '../../../shared/medico/medico';
 import { MedicosService } from '../../../../services/medicos.service';
 
@@ -11,9 +11,23 @@ export class TableMedicoComponent {
   // @Input({required: true}) medicoList!: ListMedicos;
   medico = <ListMedicos[]>([]);
 
+  @Input() resp!: boolean;
   @Output() medicoIndex = new EventEmitter(); 
 
   constructor(private medicoService: MedicosService){ }
+  ngOnChanges(changes: SimpleChanges){
+    console.log('Estamos en la table');
+    const dataTable = changes['resp'];
+    if(dataTable){
+      this.getData();
+    }
+  }
+  refreshData(){
+    if(this.resp){
+      console.log('Estamos en Table')
+      this.getData();
+    }
+  }
 
   medicoData(index: number){
     this.medicoIndex.emit(this.medico[index]);
@@ -27,7 +41,5 @@ export class TableMedicoComponent {
       console.log(this.medico);
      });
   }
-  ngOnInit(): void{
-    this.getData();
-  }
+  
 }
