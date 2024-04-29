@@ -1,0 +1,10 @@
+i{
+    cursor: pointer;
+    margin-left: 10px;
+}
+.edit{
+    color: rgb(29, 78, 216);
+}
+.delete{
+    color: red;
+}

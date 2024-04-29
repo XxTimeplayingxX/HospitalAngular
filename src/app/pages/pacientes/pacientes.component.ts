@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PacienteInterface } from '../../response/paciente';
+import { PacienteInterface } from '../../domine/shared/paciente/paciente';
 import { PacienteService } from '../../services/paciente.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MedicosService } from '../../services/medicos.service';

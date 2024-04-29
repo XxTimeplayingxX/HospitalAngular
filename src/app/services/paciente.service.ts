@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { PacienteInterface } from '../response/paciente';
+import { PacienteInterface } from '../domine/shared/paciente/paciente';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 
 @Injectable({
@@ -27,5 +27,25 @@ export class PacienteService {
 
     return this.httpCliente.put(`https://localhost:7107/api/Paciente?cedula=${paciente.cedula}&nombre=${paciente.nombre}&apellido=${paciente.apellido}&telefono=${paciente.telefono}&correo=${paciente.correo}&numHistorial=${paciente.numero_historial}`, {})
   }
-  //https://localhost:7107/api/Paciente?cedula=0954168282&nombre=Juan&apellido=S%C3%A1nchez&telefono=0998907153&correo=david%40gmail.com&numHistorial=8001
+
+  postData(paciente: PacienteInterface) : Observable<any>{
+    const params = new HttpParams()
+    .set('numero_historial', paciente.numero_historial)
+    .set('nombre', paciente.nombre)
+    .set('apellido', paciente.apellido)
+    .set('cedula', paciente.cedula)
+    .set('telefono', paciente.telefono)
+    .set('correo', paciente.correo)
+
+    return this.httpCliente.post(`https://localhost:7107/api/Paciente?nombre=${paciente.nombre}%20&apellido=${paciente.apellido}&cedula=${paciente.cedula}&telefono=${paciente.telefono}&correo=${paciente.correo}&numeroHistorial=${paciente.numero_historial}`, {})
+  }
+
+  DeleteData(paciente:PacienteInterface) : Observable<any>{
+    console.log('Llego el paciente: ' + paciente)
+    const params = new HttpParams()
+    .set('cedula', paciente.cedula)
+
+    return this.httpCliente.delete(`https://localhost:7107/api/Paciente/${paciente.cedula}?cedula=${paciente.cedula}`, {});
+  }
+  //https://localhost:7107/api/Paciente/0954168282?cedula=0954168282
 }

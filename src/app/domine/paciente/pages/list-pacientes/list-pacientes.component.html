@@ -1,0 +1,6 @@
+<div class="mt-10">
+    <app-form-paciente [dataPaciente]="dataPaciente" (actualizado)="ngAfterViewInit()" (anadido)="refreshData()"/>
+</div>
+<div class="mt-10 mx-5">
+    <app-dashboard (sendToFather)="fromChild($event)"/>
+</div>

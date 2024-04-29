@@ -10,11 +10,20 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: 'med',
+  path: '',
   children: [
     {
       path: 'listado',
       loadChildren: ()=>import('./domine/medicos/medic.module').then(m=>m.MedicModule)
+    }
+  ]
+},
+{
+  path: '',
+  children:[
+    {
+      path: 'paciente',
+      loadChildren: ()=>import('./domine/paciente/paciente.module').then(p=>p.PacienteModule)
     }
   ]
 },
