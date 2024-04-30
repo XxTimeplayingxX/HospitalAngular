@@ -11,16 +11,17 @@ import { LabsComponent } from './pages/labs/labs.component';
 import { PacientesComponent } from './pages/pacientes/pacientes.component';
 import { SideBarComponent } from './pages/side-bar/side-bar.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MatSlideToggle } from '@angular/material/slide-toggle'
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material/list';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
+
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import {MatFormFieldModule} from '@angular/material/form-field'
+import { MatInputModule} from '@angular/material/input'
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -31,7 +32,6 @@ import { RouterModule } from '@angular/router';
     LabsComponent,
     PacientesComponent,
     SideBarComponent,
-    
   ],
   imports: [
     SharedModule,
@@ -39,7 +39,11 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     BrowserModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatButtonModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [
     provideHttpClient(),

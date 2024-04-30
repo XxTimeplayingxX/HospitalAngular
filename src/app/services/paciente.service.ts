@@ -8,7 +8,7 @@ import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
   providedIn: 'root'
 })
 export class PacienteService {
-  API_URL: string = 'https://localhost:7107/api/'
+  API_URL: string = 'http://10.10.80.96:5042/api/'
 
   constructor(private httpCliente: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class PacienteService {
     .set('telefono', paciente.telefono)
     .set('correo', paciente?.correo??'juan%40gmail.com')
 
-    return this.httpCliente.put(`https://localhost:7107/api/Paciente?cedula=${paciente.cedula}&nombre=${paciente.nombre}&apellido=${paciente.apellido}&telefono=${paciente.telefono}&correo=${paciente.correo}&numHistorial=${paciente.numero_historial}`, {})
+    return this.httpCliente.put(`http://10.10.80.96:5042/api/Paciente?cedula=${paciente.cedula}&nombre=${paciente.nombre}&apellido=${paciente.apellido}&telefono=${paciente.telefono}&correo=${paciente.correo}&numHistorial=${paciente.numero_historial}`, {})
   }
 
   postData(paciente: PacienteInterface) : Observable<any>{
@@ -37,7 +37,7 @@ export class PacienteService {
     .set('telefono', paciente.telefono)
     .set('correo', paciente.correo)
 
-    return this.httpCliente.post(`https://localhost:7107/api/Paciente?nombre=${paciente.nombre}%20&apellido=${paciente.apellido}&cedula=${paciente.cedula}&telefono=${paciente.telefono}&correo=${paciente.correo}&numeroHistorial=${paciente.numero_historial}`, {})
+    return this.httpCliente.post(`http://10.10.80.96:5042/api/Paciente?nombre=${paciente.nombre}%20&apellido=${paciente.apellido}&cedula=${paciente.cedula}&telefono=${paciente.telefono}&correo=${paciente.correo}&numeroHistorial=${paciente.numero_historial}`, {})
   }
 
   DeleteData(paciente:PacienteInterface) : Observable<any>{
@@ -45,7 +45,7 @@ export class PacienteService {
     const params = new HttpParams()
     .set('cedula', paciente.cedula)
 
-    return this.httpCliente.delete(`https://localhost:7107/api/Paciente/${paciente.cedula}?cedula=${paciente.cedula}`, {});
+    return this.httpCliente.delete(`http://10.10.80.96:5042/api/Paciente/${paciente.cedula}?cedula=${paciente.cedula}`, {});
   }
   //https://localhost:7107/api/Paciente/0954168282?cedula=0954168282
 }

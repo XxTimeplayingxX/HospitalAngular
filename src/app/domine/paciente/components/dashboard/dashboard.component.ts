@@ -3,8 +3,6 @@ import { PacienteInterface } from '../../../shared/paciente/paciente';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PacienteService } from '../../../../services/paciente.service';
 
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

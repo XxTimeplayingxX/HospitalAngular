@@ -12,7 +12,7 @@ export class MedicosService {
 
   constructor(private http:HttpClient) { }
   getData(): Observable<any>{
-    const url = 'https://localhost:7107/api/';
+    const url = 'http://10.10.80.96:5042/api/';
     return this.http.get<any>(`${url}Medico`);
   }
 
@@ -28,8 +28,8 @@ export class MedicosService {
     .set('especialidad', medico.especialidad)
     .set('cargo', medico.cargo)
 
-    const url = 'https://localhost:7107/api/';
-    return this.http.put<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&espcialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
+    const url = 'https://10.10.80.96:5042/api/';
+    return this.http.put<any>(`http://10.10.80.96:5042/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&espcialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
   }
   postData(medico:ListMedicos): Observable<any>{
     //Crea los parametros del api
@@ -43,7 +43,7 @@ export class MedicosService {
     .set('cargo', medico.cargo)
 
     
-    return this.http.post<any>(`https://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&especialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
+    return this.http.post<any>(`http://localhost:7107/api/Medico?cedula=${medico.cedula}&nombre=${medico.nombre}&apellido=${medico.apellido}&telefono=${medico.telefono}&correo=${medico.correo}&especialidad=${medico.especialidad}&cargo=${medico.cargo}`, {});
     
     //http://https//localhost:7107/api/Medico?cedula=0989787719&nombre=Juan&apellido=Piguave&telefono=0978568112&correo=jpiguave%40gmail.com&especialidad=Veterinario&cargo=auxiliar
 
@@ -54,7 +54,7 @@ export class MedicosService {
     const param = new HttpParams()
     .set('cedula', medico.cedula)
 
-    return this.http.delete<any>(`https://localhost:7107/api/Medico/${medico.cedula}?cedula=${medico.cedula}`, {});
+    return this.http.delete<any>(`http://localhost:7107/api/Medico/${medico.cedula}?cedula=${medico.cedula}`, {});
   }
 }
 
