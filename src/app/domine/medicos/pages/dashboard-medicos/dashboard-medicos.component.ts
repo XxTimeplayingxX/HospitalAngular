@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, ViewChild, viewChild } from '@angular/core';
-import { ListMedicos } from './../../../shared/medico/medico';
+import { MedicoInterface } from './../../../shared/medico/medico';
 import { MedicosService } from '../../../../services/medicos.service';
 import { TableMedicoComponent } from '../../componente/table-medico/table-medico.component';
 
@@ -11,8 +11,8 @@ import { TableMedicoComponent } from '../../componente/table-medico/table-medico
 export class DashboardMedicosComponent implements AfterViewInit {
   @ViewChild(TableMedicoComponent) tbMedico!:TableMedicoComponent;
 
-  medico = <ListMedicos[]>([]);
-  dataMedico : ListMedicos | null = null;
+  medico = <MedicoInterface[]>([]);
+  dataMedico : MedicoInterface | null = null;
   response : boolean = false;
 
 
@@ -25,7 +25,7 @@ export class DashboardMedicosComponent implements AfterViewInit {
    this.tbMedico.refreshData();
   }
 
-  fromChild(event: ListMedicos){
+  fromChild(event: MedicoInterface){
     this.dataMedico = event;
     console.log('Estamos en Form');
     console.log(event)

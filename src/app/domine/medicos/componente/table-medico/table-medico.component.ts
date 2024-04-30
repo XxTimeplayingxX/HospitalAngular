@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
-import { ListMedicos } from '../../../shared/medico/medico';
+import { MedicoInterface } from '../../../shared/medico/medico';
 import { MedicosService } from '../../../../services/medicos.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MedicosService } from '../../../../services/medicos.service';
 })
 export class TableMedicoComponent {
   // @Input({required: true}) medicoList!: ListMedicos;
-  medico = <ListMedicos[]>([]);
+  medico = <MedicoInterface[]>([]);
 
   @Input() resp!: boolean;
   @Output() medicoIndex = new EventEmitter(); 

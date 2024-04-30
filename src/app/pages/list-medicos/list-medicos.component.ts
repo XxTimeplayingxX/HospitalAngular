@@ -1,5 +1,5 @@
 import { Component,Input,OnInit, signal } from '@angular/core';
-import { ListMedicos } from '../../response/models.listMedicos';
+import { MedicoInterface } from '../../domine/shared/medico/medico';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AsyncPipe } from '@angular/common';
 import { Observable, finalize } from 'rxjs';
@@ -12,13 +12,13 @@ import {MedicosService } from './../../services/medicos.service'
 })
   export class ListMedicosComponent /*implements OnInit*/{
     hideSideMenu = signal(true);
-  @Input({required: true}) cart: ListMedicos[] = []
+  @Input({required: true}) cart: MedicoInterface[] = []
 
   toogleSideMenu(){
     this.hideSideMenu.update(prevState => !prevState)
   }
     
-    medico: ListMedicos[] = [];
+    medico: MedicoInterface[] = [];
     forms: FormGroup;
     labelButton : string = 'Aceptar';
     labelAnadirMedico : string = 'Agregar';

@@ -1,4 +1,4 @@
-export interface ListMedicos{
+export interface MedicoInterface{
     idMedico: number
     especialidad: string
     cargo: string

@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { ListMedicos } from '../../../../response/models.listMedicos';
+import { MedicoInterface } from '../../../shared/medico/medico';
 import { MedicosService } from '../../../../services/medicos.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MedicosService } from '../../../../services/medicos.service';
 })
 export class ListMedicosComponent {
 
-  medico = <ListMedicos[]>([]);
+  medico = <MedicoInterface[]>([]);
 
   constructor(private medicoService: MedicosService){ }
 

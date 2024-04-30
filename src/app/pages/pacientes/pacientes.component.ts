@@ -34,6 +34,8 @@ export class PacientesComponent implements OnInit{
       console.log(this.paciente); 
     });
   }
+
+  
   actualizarPaciente(index: number){
     //Colocamos los datos según el index en el formulario
     this.forms.patchValue(this.paciente[index]);

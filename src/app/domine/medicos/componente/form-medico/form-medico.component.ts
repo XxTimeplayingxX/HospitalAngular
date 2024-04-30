@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChange, SimpleChanges, output } from '@angular/core';
-import { ListMedicos } from './../../../shared/medico/medico';
+import { MedicoInterface } from './../../../shared/medico/medico';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MedicosService } from '../../../../services/medicos.service';
 import { finalize } from 'rxjs';
@@ -12,12 +12,12 @@ import { ɵvalidateWebAnimatableStyleProperty } from '@angular/animations/browse
 })
 
 export class FormMedicoComponent implements  OnChanges{
-  medico: ListMedicos[] = [];
+  medico: MedicoInterface[] = [];
   forms: FormGroup;
   labelButton : string = 'Actualizar Médico';
   labelAddMedico : string = 'Añadir Médico';
   //Input
-  @Input() dataMedico: ListMedicos | null = null;
+  @Input() dataMedico: MedicoInterface | null = null;
   //Output
   @Output() actualizado = new EventEmitter();
   @Output() anadido = new EventEmitter();
@@ -42,7 +42,7 @@ export class FormMedicoComponent implements  OnChanges{
     }
   }
 
-  fromChild(event: ListMedicos){
+  fromChild(event: MedicoInterface){
     console.log('Estamos en Form');
     console.log(event)
   }

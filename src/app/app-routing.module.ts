@@ -6,14 +6,14 @@ import { PacientesComponent } from './pages/pacientes/pacientes.component';
 import { SideBarComponent } from './pages/side-bar/side-bar.component';
 
 const routes: Routes = [{
-  path: 'ja',
+  path: '',
   component: LoginComponent
 },
 {
   path: '',
   children: [
     {
-      path: 'listado',
+      path: 'medico',
       loadChildren: ()=>import('./domine/medicos/medic.module').then(m=>m.MedicModule)
     }
   ]
