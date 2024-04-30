@@ -8,56 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="container mt-5 formContainer">
+    <div class="container mt-5">
         <div class="row">
-            <div class="col-lg-12 offset-lg-2">
-                <div class="card-body center">
-                    <h3 class=" text-center">Cita médica 
-                        <i class="fa-solid fa-user-doctor">
-                        </i>
-                    </h3>
+            <div class="col-lg-8 offset-lg-2">
+                <div class="card">
+                    <div class="card-body center">
+                        <h3 class="titulo text-center">LOGIN</h3>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="row mt-5 ">
-            <div class="col-lg-12 col-md-12">
-                <div class="card-body">
-                    <h5 class="titulo text-center">
-                        Ingresa tu usuario
-                    </h5>
-                    <form class="form">
-                        <div class="input-group input-group-lg mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                            <input  type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
-                          </div>
-                          
-                          <div class="row">
-                            <div class="">
-                                <div class="input-group input-group-lg input-group-md mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
-                                    <input  type="password" class="form-control" placeholder="Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="row mt-4">
+            <div class="col-lg-6 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="titulo text-center">
+                            AGREGAR TARJETA
+                        </h5>
+                        <form>
+                            <div class="input-group input-group-lg mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                <input formControlName="titular" type="text" class="form-control" placeholder="Usuario" aria-label="Username" aria-describedby="basic-addon1">
+                              </div>
+                              
+                              <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="input-group input-group-lg input-group-md mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                                        <input formControlName="cvv" type="password" class="form-control" placeholder="Contraseña" aria-label="Username" aria-describedby="basic-addon1">
+                                    </div>
                                 </div>
-                            </div>
-                          </div>
-                          <div class="d-grid gap-2">
-                            <button 
-                            type="submit" class="btn btn-lg">
-                                &nbsp;Aceptar
-                            </button>
-                          </div>
-                          <div class="ask mt-4">
-                            <p>Si no tiene usuario puede registrarse <a href="">aquí</a></p>
-                          </div>
-                    </form>
+                              </div>
+                              <div class="d-grid gap-2">
+                                <button 
+                                type="submit" class="btn btn-success btn-lg">
+                                    <i class="fa-solid fa-database"></i>
+                                    &nbsp;Aceptar
+                                </button>
+                              </div>
+                            </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <button 
-        type="submit" class="btn btn-lg">
-            &nbsp;Continuar
-        </button>  
-    </div>   
-
+        </div>  
+    </div>      
 </body>
 </html>

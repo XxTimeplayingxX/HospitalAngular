@@ -1,43 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { LabsComponent } from './pages/labs/labs.component';
-import { PacientesComponent } from './pages/pacientes/pacientes.component';
-import { SideBarComponent } from './pages/side-bar/side-bar.component';
+import { ListMedicosComponent } from './pages/list-medicos/list-medicos.component';
 
 const routes: Routes = [{
   path: '',
   component: LoginComponent
 },
 {
-  path: '',
-  children: [
-    {
-      path: 'medico',
-      loadChildren: ()=>import('./domine/medicos/medic.module').then(m=>m.MedicModule)
-    }
-  ]
-},
-{
-  path: '',
-  children:[
-    {
-      path: 'paciente',
-      loadChildren: ()=>import('./domine/paciente/paciente.module').then(p=>p.PacienteModule)
-    }
-  ]
-},
-{
-  path: 'labs',
-  component: LabsComponent
-},
-{
-  path: 'paciente',
-  component: PacientesComponent
-},
-{
-  path: 'sidebar',
-  component: SideBarComponent
+  path: 'medicos',
+  component: ListMedicosComponent
 }
 ];
 
