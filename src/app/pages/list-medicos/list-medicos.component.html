@@ -9,7 +9,68 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="container">
+  <nav>
+    <div
+      class="w-full flex flex-wrap items-center justify-between mx-auto py-4"
+    >
+      <div class="flex items-center space-x-8">
+        <a href="https://flowbite.com/" class="flex items-center ">
+          <img
+            src="https://flowbite.com/docs/images/logo.svg"
+            class="h-6 mr-3"
+            alt="Flowbite Logo"
+          />
+          <span class="self-center text-xl font-semibold whitespace-nowrap"
+            >Flowbite</span
+          >
+        </a>
+        <ul class="flex space-x-6">
+          <li>
+            <a
+              href="#"
+              class="block underline hover:underline"
+              aria-current="page"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block hover:underline"
+              >About</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="block hover:underline"
+              >Services</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="flex items-center">
+        <button class="p-2 rounded relative" (click)="toogleSideMenu()">
+          <div class="absolute -top-2 -left-2 rounded h-5 w-5 bg-black text-white text-xs">{{cart.length}}</div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+    <!-- <div class="container">
         <div class="row">
             <div class="col text-center">
                 <h1>Medicos</h1>
@@ -19,66 +80,72 @@
           
         </div>
         <div class="card p-5 mb-3">
-            <form [formGroup]="forms" (ngSubmit)="agregarMedico()">
-                <div class="input-group input-group-lg mb-3">
-                    <!-- Imagen -->
-                  <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-link"></i></span>
-                    <input formControlName="imagen" type="text" class="form-control" placeholder="Ingrese Url" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                    <!-- Nombre y Apellido -->
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
-                    <input formControlName="name" type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
-                    <input formControlName="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <!-- Cedula -->
-                  <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-credit-card"></i></span>
-                    <input formControlName="cedula" type="text" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <!-- Telefono -->
-                  <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
-                    <input formControlName="telefono" type="text" class="form-control" placeholder="Telefono" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <!-- Especialidad -->
-                  <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-doctor"></i></span>
-                    <input formControlName="especialidad" type="text" class="form-control" placeholder="Especialidad" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <!-- Cargo -->
-                  <div class="input-group input-group-lg mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-briefcase"></i></span>
-                    <input formControlName="cargo" type="text" class="form-control" placeholder="Cargo" aria-label="Username" aria-describedby="basic-addon1">
-                  </div>
-                  <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-success btn-lg">
-                        <i class="fa-solid fa-database"></i>
-                        &nbsp;Aceptar
-                      </button>
-                  </div>
-                </form>
+          <form [formGroup]="forms" >
+            <div class="input-group input-group-lg mb-3">
+                
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre" aria-label="Username" aria-describedby="basic-addon1">
+                <input formControlName="apellido" type="text" class="form-control" placeholder="Apellido" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-credit-card"></i></span>
+                <input formControlName="cedula" type="text" class="form-control" placeholder="Cedula" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+                <input formControlName="telefono" type="text" class="form-control" placeholder="Telefono" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+             
+              <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-doctor"></i></span>
+                <input formControlName="especialidad" type="text" class="form-control" placeholder="Especialidad" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              
+              <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-briefcase"></i></span>
+                <input formControlName="cargo" type="text" class="form-control" placeholder="Cargo" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="d-grid gap-2 buttons">
+                <div class="row justify-content-around">
+                  <button type="button" (click)="safeData()" class="btn  btn-lg col-lg-5 col-md-5 col-sm-12 m-1">
+                    <i class="fa-solid fa-database"></i>
+                    &nbsp;{{labelButton}}
+                  </button>
+                  <button type="button" (click)="postData()" class="btn  btn-lg col-lg-5 col-md-5 col-sm-12 post m-1">
+                    <i class="fa-solid fa-database"></i>
+                    &nbsp;{{labelAnadirMedico}}
+                  </button>
+                </div>
+              </div>
+            </form>
         </div>
-        <div class="row">
 
-            @for (Medicos of listMedico; track $index) {
-                <div class="card col-md-5 col-sm-6 col-lg-4" >
-                    <img [src]="Medicos.imagen" class="card-img-top" alt="...">
+
+        
+        <div class="row justify-content-around">
+
+            @for (Medicos of medico; track Medicos;let  i = $index) {
+                <div class="card col-md-5 col-sm-6 col-lg-4 gap-3" >
                     <div class="card-body">
-                        <h5 class="card-title">{{Medicos.name +' '+ Medicos.apellido}}</h5>
+                        <h5 class="card-title">{{Medicos.nombre +' '+ Medicos.apellido}}</h5>
                         <ul>
-                            <li>Cedula: {{Medicos.cedula}}</li>
-                            <li>Telefono: {{Medicos.telefono}}</li>
-                            <li>Especialidad: {{Medicos.especialidad}}</li>
-                            <li>Cargo: {{Medicos.cargo}}</li>
+                            <li><b>Cedula:</b> {{Medicos.cedula}}</li>
+                            <li><b>Telefono:</b> {{Medicos.telefono}}</li>
+                            <li><b>Especialidad:</b> {{Medicos.especialidad}}</li>
+                            <li><b>Cargo:</b> {{Medicos.cargo}}</li>
                         </ul>
-                        <a href="#" class="btn btn-primary">Cita</a>
+                        <button class="btn btn-primary" (click)="actualizarMedico(i)">Cita</button>
                     </div>
                 </div>
-            }
+                
+                
+            } 
 
         </div>
         
     </div>
+    -->
 </body>
 </html>
